@@ -1,14 +1,25 @@
 // Carregar ethers.js e conectar à rede Ethereum usando Infura ou outra API
-const { ethers } = require('ethers');
-
-// Endereços e ABIs dos contratos do Uniswap
-const uniswapRouterAddress = '0x7a250d5630b4cf539739df2c5dacab264c11f7ac';
-// ABI do contrato Uniswap V2 Router
-const uniswapRouterABI = require('./IUniswapV2Router02.json');
-
-// Criar uma instância do contrato Uniswap V2 Router
 const provider = new ethers.providers.InfuraProvider('mainnet', '6d98166487ab4625a3826e6b7ab01920');
-const uniswapRouter = new ethers.Contract(uniswapRouterAddress, uniswapRouterABI, provider);
+
+// Endereço e ABI do contrato Uniswap V2 Router
+const uniswapRouterAddress = '0x7a250d5630b4cf539739df2c5dacab264c11f7ac';
+let uniswapRouterABI;
+
+// Carregar a ABI do contrato Uniswap V2 Router usando Fetch
+fetch('./IUniswapV2Router02.json')
+    .then(response => response.json())
+    .then(data => {
+        uniswapRouterABI = data;
+
+        // Criar uma instância do contrato Uniswap V2 Router
+        const uniswapRouter = new ethers.Contract(uniswapRouterAddress, uniswapRouterABI, provider);
+
+        // Verificar se a instância do contrato foi criada corretamente
+        console.log('Instância do contrato Uniswap V2 Router:', uniswapRouter);
+    })
+    .catch(error => {
+        console.error('Erro ao carregar a ABI do contrato:', error);
+    });
 
 async function loadTokens() {
     // Exemplo de tokens - você pode carregar dinamicamente da API Uniswap ou usar uma lista predefinida
@@ -62,6 +73,7 @@ async function swapTokens() {
 document.getElementById('swap-button').addEventListener('click', swapTokens);
 
 window.onload = loadTokens;
+
 
 
 
