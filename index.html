@@ -9,7 +9,10 @@
 <body>
     
     <h2>Realize Compras e Swaps de Cripto Ativos</h2>
-    <div id="swap-interface">
+    <button id="connectButton">Conectar Carteira</button>
+    <div id="walletAddress"></div>
+
+    <div id="swap-interface" style="display: none;">
         <label for="from-token">De:</label>
         <select id="from-token">
             <!-- Tokens serão carregados aqui -->
@@ -25,7 +28,11 @@
         <button id="swap-button">Swap</button>
     </div>
 
-    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+    <h2>Buscar Token</h2>
+    <input type="text" id="tokenSearch" placeholder="Buscar token...">
+
+    <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
