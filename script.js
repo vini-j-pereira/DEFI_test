@@ -143,12 +143,3 @@ async function swapTokens() {
 
 document.getElementById('swap-button').addEventListener('click', swapTokens);
 window.onload = loadTokens;
-
-
-
-
-
-
-
-
-
