@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.6.1/dist/ethers.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>DEFI</title>
+</head>
+<body>
+    
+    <h2>Realize Compras e Swaps de Cripto Ativos</h2>
+    <div id="swap-interface">
+        <label for="from-token">De:</label>
+        <select id="from-token">
+            <!-- Tokens serão carregados aqui -->
+        </select>
+        <input type="number" id="from-amount" placeholder="Quantia">
+
+        <label for="to-token">Para:</label>
+        <select id="to-token">
+            <!-- Tokens serão carregados aqui -->
+        </select>
+        <input type="number" id="to-amount" placeholder="Quantia" disabled>
+
+        <button id="swap-button">Swap</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
